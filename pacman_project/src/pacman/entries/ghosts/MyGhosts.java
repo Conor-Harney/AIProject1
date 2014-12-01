@@ -18,6 +18,7 @@ import java.security.AllPermission;
  * be placed in this package or sub-packages (e.g., game.entries.ghosts.mypackage).
  */
 public class MyGhosts extends Controller<EnumMap<GHOST, MOVE>> {
+	Boolean blinkyHitTarget = false, pinkyHitTarget = false, sueHitTarget = false;
 	int ghostsAssigned;
 	private EnumMap<GHOST, MOVE> myMoves = new EnumMap<GHOST, MOVE>(GHOST.class);
 
@@ -43,14 +44,44 @@ public class MyGhosts extends Controller<EnumMap<GHOST, MOVE>> {
 			if (possiblePaths.length > 1) {
 				switch (ghostsAssigned) {
 				case (1):
-					assignGhost(game, GHOST.BLINKY, targetNode);
+					if(game.getGhostCurrentNodeIndex(GHOST.BLINKY) == targetNode){
+						blinkyHitTarget = true;
+						assignGhost(game, GHOST.BLINKY, game.getPacmanCurrentNodeIndex());
+					}
+					else if(blinkyHitTarget){
+						assignGhost(game, GHOST.BLINKY, game.getPacmanCurrentNodeIndex());
+					}
+					else{
+						assignGhost(game, GHOST.BLINKY, targetNode);
+					}
 					break;
+					
 				case (2):
-					assignGhost(game, GHOST.PINKY, targetNode);
+					if(game.getGhostCurrentNodeIndex(GHOST.PINKY) == targetNode){
+						blinkyHitTarget = true;
+						assignGhost(game, GHOST.PINKY, game.getPacmanCurrentNodeIndex());
+					}
+					else if(blinkyHitTarget){
+						assignGhost(game, GHOST.PINKY, game.getPacmanCurrentNodeIndex());
+					}
+					else{
+						assignGhost(game, GHOST.PINKY, targetNode);
+					}
 					break;
+					
 				case (3):
-					assignGhost(game, GHOST.SUE, targetNode);
+					if(game.getGhostCurrentNodeIndex(GHOST.SUE) == targetNode){
+						blinkyHitTarget = true;
+						assignGhost(game, GHOST.SUE, game.getPacmanCurrentNodeIndex());
+					}
+					else if(blinkyHitTarget){
+						assignGhost(game, GHOST.SUE, game.getPacmanCurrentNodeIndex());
+					}
+					else{
+						assignGhost(game, GHOST.SUE, targetNode);
+					}
 					break;
+					
 				default:
 					break;
 				}
