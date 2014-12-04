@@ -1,15 +1,15 @@
 <?xml version="1.0"?>
 <company>
-	<state id="chasing">
-		<firstname>yong</firstname>
+	<currentstate id="chasing">
+		<action>ate power pill</action>
+		<nextstate>fleeing</nextstate>
 		<lastname>mook kim</lastname>
 		<nickname>mkyong</nickname>
 		<salary>100000</salary>
-	</state>
-	<state id="fleeing">
-		<firstname>low</firstname>
-		<lastname>yin fong</lastname>
-		<nickname>fong fong</nickname>
-		<salary>200000</salary>
-	</state>
+	</currentstate>
+	<currentstate id="fleeing">
+		<action>power pill expired</action>
+		<nextstate>chasing</nextstate>
+		<function></function>
+	</currentstate>
 </company>

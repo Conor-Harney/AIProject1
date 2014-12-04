@@ -157,7 +157,7 @@ public class MyGhosts extends Controller<EnumMap<GHOST, MOVE>> {
 			//System.out.println("Root element :"
 					//+ doc.getDocumentElement().getNodeName());
 
-			NodeList nList = doc.getElementsByTagName("state");
+			NodeList nList = doc.getElementsByTagName("currentstate");
 
 			System.out.println("----------------------------");
 
@@ -173,7 +173,7 @@ public class MyGhosts extends Controller<EnumMap<GHOST, MOVE>> {
 
 					System.out.println("Atribute : " + eElement.getAttribute("id"));
 					
-					System.out.println("Tag Name : " + eElement.getElementsByTagName("firstname").item(0).getTextContent());
+					System.out.println("Tag Name : " + eElement.getElementsByTagName("nextstate").item(0).getTextContent());
 					
 					/*System.out.println("Last Name : "
 							+ eElement.getElementsByTagName("lastname").item(0)

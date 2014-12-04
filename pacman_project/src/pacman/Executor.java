@@ -112,6 +112,7 @@ public class Executor
 			{
 		        game.advanceGame(pacManController.getMove(game.copy(),System.currentTimeMillis()+DELAY),
 		        		ghostController.getMove(game.copy(),System.currentTimeMillis()+DELAY));
+		   
 			}
 			
 			avgScore+=game.getScore();
