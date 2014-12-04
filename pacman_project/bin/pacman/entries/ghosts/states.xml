@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='us-ascii'?> 
+<!-- this file will store the possible states and actions --> 
+
+<stateMachine> 
+ <!-- States -->
+    <state name="Root">
+        <state name="SwitchedOff">
+            <onEntry action="led.doOff()"/>
+            <transition event="on" nextState="SwitchedOn"/>
+        </state>
+        <state name="SwitchedOn">
+            <onEntry action="led.doOn()"/>
+            <transition event="off" nextState="SwitchedOff"/>
+        </state>
+    </state>
+</stateMachine>
