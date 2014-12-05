@@ -64,9 +64,10 @@ public class Executor
 		//run the game in asynchronous mode.
 		boolean visual=true;
 //		exec.runGameTimed(new NearestPillPacMan(),new AggressiveGhosts(),visual);
-//		exec.runGameTimed(new StarterPacMan(),new StarterGhosts(),visual);
+		//exec.runGameTimed(new NearestPillPacManVS(),new MyGhosts(),visual);
 		//exec.runGameTimed(new HumanController(new KeyBoardInput()),new StarterGhosts(),visual);	
 		exec.runGameTimed(new StarterPacMan(),new MyGhosts(),visual);
+		//exec.runExperiment(new NearestPillPacMan(),new MyGhosts(), 100);
 		//exec.runGameTimed(new HumanController(new KeyBoardInput()),new MyGhosts(),visual);
 		//*/
 		

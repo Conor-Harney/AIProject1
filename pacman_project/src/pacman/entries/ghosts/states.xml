@@ -1,16 +1,47 @@
-<?xml version='1.0' encoding='us-ascii'?> 
-<!-- this file will store the possible states and actions --> 
+<?xml version="1.0"?>
+<states>
 
-<stateMachine> 
- <!-- States -->
-    <state name="Root">
-        <state name="SwitchedOff">
-            <onEntry action="led.doOff()"/>
-            <transition event="on" nextState="SwitchedOn"/>
-        </state>
-        <state name="SwitchedOn">
-            <onEntry action="led.doOn()"/>
-            <transition event="off" nextState="SwitchedOff"/>
-        </state>
-    </state>
-</stateMachine>
+	<currentstate id="seeking_front_node">
+		<currentFunction>seekNode</currentFunction>
+		<actionToNextState>hit_target</actionToNextState>
+		<nextstate>seeking_pacman</nextstate>
+	</currentstate>
+	
+	<currentstate id="seeking_front_node">
+		<currentFunction>seekNode</currentFunction>
+		<actionToNextState>ate_power_pill</actionToNextState>
+		<nextstate>fleeing</nextstate>
+	</currentstate>
+	
+	<currentstate id="seeking_pacman">
+		<currentFunction>seekPacman</currentFunction>
+		<actionToNextState>ate_power_pill</actionToNextState>
+		<nextstate>fleeing</nextstate>
+	</currentstate>
+
+	<currentstate id="fleeing">
+		<currentFunction>runAway</currentFunction>
+		<actionToNextState>power_pill_expired</actionToNextState>
+		<nextstate>seeking_front_node</nextstate>
+	</currentstate>
+
+
+	<currentstate id="seeking_front_node">
+		<currentFunction>seekNode</currentFunction>
+		<actionToNextState>died</actionToNextState>
+		<nextstate>seeking_front_node</nextstate>
+	</currentstate>
+
+	<currentstate id="seeking_pacman">
+		<currentFunction>seekPacman</currentFunction>
+		<actionToNextState>died</actionToNextState>
+		<nextstate>seeking_front_node</nextstate>
+	</currentstate>
+
+	<currentstate id="fleeing">
+		<currentFunction>runAway</currentFunction>
+		<actionToNextState>died</actionToNextState>
+		<nextstate>seeking_front_node</nextstate>
+	</currentstate>
+	
+</states>
